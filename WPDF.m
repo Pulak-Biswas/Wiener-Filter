@@ -7,7 +7,7 @@ function [Dac,lags,otpshot]=WPDF(inpshot,Flen,WN,ts,PD)
 % %                  WN: White noise percentage                 %
 % %                  ts: time sampling interval                 %
 % %                  PD:  Prediction distance                   %
-% %                       = 0 for Spiking                       %
+% %                       = 1 for Spiking                       %
 % %      OUTPUTS     Dac: Autocorrelation fnc                   %
 % %                  lags: Autocorrelation lags                 %
 % %                  otpshot: actual output                     %
@@ -16,8 +16,8 @@ function [Dac,lags,otpshot]=WPDF(inpshot,Flen,WN,ts,PD)
 box=size(inpshot);                                           % size of input data
 Olen = box(1)+Flen-1;
 
-if PD == 0
-    Dwav=[1,zeros(1,box(1)-1)];                              % desired wavelet
+if PD == 1
+    Dwav=[PD,zeros(1,box(1)-1)];                              % desired wavelet
 else
     Dwav = [inpshot(PD+1:box(1)),zeros(1,Olen-box(1)+PD)]';  % desired wavelet
 end
