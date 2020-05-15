@@ -1,2 +1,2 @@
 # Wiener-Filter
-Application of Digital Wiener's Filtering in Seismic Data Processing
+Application of Digital Wiener Filtering in Seismic Data Processing
